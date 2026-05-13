@@ -5,10 +5,16 @@ import { createServer, IncomingMessage, ServerResponse, type Server } from "http
 const practice: Server = createServer((req: IncomingMessage, res: ServerResponse) => {
   console.log(req.url);
   console.log(req.method);
-  res.end("Ki obsta tumar");
 
   if (req.url === "/" && req.method === "GET") {
-    res.end("Ami valo achi");
+    res.writeHead(200, { "content-type": "application/json" });
+    res.end(JSON.stringify({ message: "Alhamdullilah" }));
+  } else if (req.url === "/products" && req.method === "GET") {
+    res.writeHead(200, { "content-type": "application/json" });
+    res.end(JSON.stringify({ message: "ami product boltechilam" }));
+  } else {
+    res.writeHead(401, { "content-type": "application/json" });
+    res.end(JSON.stringify({ message: "ei route e kono data nei" }));
   }
 });
 
