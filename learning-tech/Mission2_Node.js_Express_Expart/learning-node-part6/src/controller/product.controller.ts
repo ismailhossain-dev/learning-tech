@@ -6,6 +6,8 @@ export const productController = (req: IncomingMessage, res: ServerResponse) => 
   const url = req.url;
 
   const method = req.method;
-  res.writeHead(200, { "Content-Type": "application/json" });
-  res.end(JSON.stringify({ message: "This is a product route" }));
+  if (url === "/products" && method === "GET") {
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify({ message: "This is a productsss route" }));
+  }
 };
