@@ -2,5 +2,5 @@
 //we will extract the file from here
 //the function call productController file
 export const ReadProducts = ()=>{
-    
+    console.log("hello");
 }
